@@ -38,10 +38,10 @@ class MainActivity : ComponentActivity() {
         webSettings.javaScriptEnabled = true  // Enable JavaScript if needed
 
         // Add JavaScript interface
-        webView.addJavascriptInterface(WebAppInterface(this), "AndroidFunction")
+        webView.addJavascriptInterface(WebAppInterface(this), "Firebase")
 
         // Load a URL
-        webView.loadUrl("http://192.168.3.87:2000/cep-telefonu.html")
+        webView.loadUrl("http://192.168.3.135:3000/cep-telefonu.html")
 //        setContent {
 //            HelloWorldTheme {
 //                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
@@ -61,7 +61,7 @@ class WebAppInterface(private val activity: ComponentActivity) {
 
     // This method will be called from JavaScript
     @JavascriptInterface
-    fun triggerNativeFunction(message: String) {
+    fun logEvent(message: String) {
         Log.d("WebView", "Message from JavaScript: $message")
 
         // Perform any native function here, like showing a Toast, starting an activity, etc.
